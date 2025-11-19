@@ -1,0 +1,58 @@
+/*
+Portfólio – Landing Page
+Arquivo de estilos base para Tailwind CSS e componentes customizados.
+Use este arquivo para centralizar customizações e facilitar manutenção.
+*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+@layer base {
+  html { scroll-behavior: smooth; }
+}
+
+/* Components */
+@layer components {
+  /* Botão principal: usado em CTAs e formulários */
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-lg px-5 py-3 text-white font-semibold shadow-sm transition-colors duration-200 focus:outline-none;
+  /* Gradient primary fallback and visual polish (theme updated) */
+  /* Single-color primary gradient: verde claro -> verde escuro */
+  background-image: linear-gradient(135deg, #00AE3D 0%, #118D77 55%, #0E6F60 100%);
+  background-color: #118D77; /* fallback for environments without gradient */
+  box-shadow: 0 6px 18px rgba(16,110,90,0.06);
+  --tw-ring-color: rgba(16,110,90,0.22);
+  }
+  /* Botão secundário: usado em ações alternativas */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-lg bg-transparent px-4 py-2 text-zapGray font-medium shadow-sm transition-colors duration-200 border;
+    /* use secondary accent as border by default */
+  border-color: #00AE3D;
+  color: #00AE3D;
+  }
+  /* hover uses a subtle blend of secondary -> darker to keep visual harmony */
+  .btn-secondary:hover{ background-image: linear-gradient(135deg, #00AE3D 0%, #00862E 100%); color:#fff; border-color:#00AE3D; }
+
+  /* Product badge using the secondary accent */
+  .product-badge {
+    @apply inline-block text-xs font-medium px-2 py-1 rounded-full;
+  /* Single-color primary gradient: verde claro -> verde escuro */
+  background-image: linear-gradient(90deg, #00AE3D 0%, #118D77 100%);
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(15,110,90,0.06);
+  }
+  /* Card: usado para blocos de conteúdo */
+  .card {
+    @apply bg-white rounded-xl shadow-sm ring-1 ring-black/5 p-5 transition-transform duration-200 hover:-translate-y-1 hover:shadow-md;
+  }
+  /* Título de seção */
+  .section-title {
+    @apply text-2xl md:text-3xl font-extrabold text-gray-900;
+  }
+  /* Subtítulo de seção */
+  .section-subtitle {
+    @apply mt-2 text-gray-600 max-w-3xl;
+  }
+}
